@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: coral;
+  text-align: center;
+}
+
+h1{
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  font-size: 22px;
+  line-height: 2;
+}
+
+.feste {
+  color: red;
+}

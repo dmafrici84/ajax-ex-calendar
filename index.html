@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ajax-ex-calendar</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/locale/it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <script id="template-mese" type="text/x-handlebars-template">
+      <li data-id={{data}}>{{value}}</li>
+    </script>
+  </head>
+  <body>
+    <h1> Gennaio- 2018</h1>
+
+    <ul id="giorni-mese">
+
+    </ul>
+
+
+  </body>
+</html>
