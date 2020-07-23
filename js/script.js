@@ -17,15 +17,18 @@ $(document).ready(init);
 
 // FUNZIONI
   function init(){
-    stampaMese();
-    stampaFeste();
+    var meseCorrente = moment("2018-01-01");
+    stampaMese(meseCorrente);
+    stampaTitolo(meseCorrente);
+    stampaFeste(meseCorrente);
+    clickSuccessivo(meseCorrente);
+    clickPrcedente(meseCorrente)
   }
 
-  function stampaMese() {
-    var meseTmplete = $("#template-mese").html();
-    var compiled = Handlebars.compile(meseTmplete)
+  function stampaMese(meseCorrente) {
+    var meseTemplete = $("#template-mese").html();
+    var compiled = Handlebars.compile(meseTemplete)
     var gioniMeseTarget= $("#giorni-mese");
-    var meseCorrente = moment("2018-01-01");
     var numGiorniMese = meseCorrente.daysInMonth();
     console.log(numGiorniMese);
     gioniMeseTarget.html("");
@@ -37,14 +40,25 @@ $(document).ready(init);
       });
       gioniMeseTarget.append(meseHtml);
     }
+
   }
 
-  function stampaFeste(){
-    var meseCorrente = moment("2018-01-01");
+  function stampaTitolo(meseCorrente) {
+    var titoloTemplete = $("#template-titolo").html();
+    var compiled1 = Handlebars.compile(titoloTemplete)
+    var titoloTarget= $("#titolo");
+    titoloTarget.html("");
+    var titoloHtml = compiled1({
+      "anno":meseCorrente.year(),
+      "mese":meseCorrente.format("MMMM")
+    });
+    titoloTarget.append(titoloHtml);
+  }
+
+  function stampaFeste(meseCorrente){
+
     var anno = meseCorrente.year();
-    console.log(anno);
     var mese = meseCorrente.month();
-    console.log(mese);
 
       $.ajax({
         url: "https://flynn.boolean.careers/exercises/api/holidays",
@@ -55,6 +69,10 @@ $(document).ready(init);
         },
         success: function(data, state) {
           console.log(data);
+          var dato = $(".dati-inesistenti");
+          dato.addClass("invisibile");
+          var contenitore = $(".contenitore");
+          contenitore.removeClass("invisibile");
           var success = data["success"];
           var feste = data["response"];
           console.log(feste);
@@ -65,6 +83,9 @@ $(document).ready(init);
               elemento.append(" - " + feste[i]["name"]);
             }
           } else {
+            dato.removeClass("invisibile");
+            var contenitore = $(".contenitore");
+            contenitore.addClass("invisibile");
             console.log("errore");
           }
 
@@ -75,4 +96,28 @@ $(document).ready(init);
           console.log("error",error);
         }
       });
+  }
+
+  function clickSuccessivo(meseCorrente) {
+    var successivo = $(".fa-angle-right");
+    successivo.click(function() {
+
+      var meseSuccessivo = meseCorrente.add(1, "month");
+
+      stampaMese(meseSuccessivo);
+      stampaTitolo(meseSuccessivo);
+      stampaFeste(meseSuccessivo);
+    });
+  }
+
+  function clickPrcedente(meseCorrente) {
+    var successivo = $(".fa-angle-left");
+    successivo.click(function() {
+
+      var mesePrecedente = meseCorrente.subtract(1, "month");
+
+      stampaMese(mesePrecedente);
+      stampaTitolo(mesePrecedente);
+      stampaFeste(mesePrecedente);
+    });
   }

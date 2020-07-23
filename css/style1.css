@@ -9,18 +9,54 @@ body {
   text-align: center;
 }
 
+.precedente {
+  position: absolute;
+  color: #000;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 50px;
+  padding: 50px;
+  cursor: pointer;
+}
+
 h1{
-  padding: 20px;
+  padding: 10px;
 }
 
 ul {
   list-style: none;
 }
 li {
-  font-size: 22px;
-  line-height: 2;
+  font-size: 18px;
 }
 
 .feste {
   color: red;
+}
+
+.successivo {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 50px;
+  padding: 50px;
+  color: #000;
+  cursor: pointer;
+}
+
+.dati-inesistenti {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invisibile {
+  display: none;
 }
