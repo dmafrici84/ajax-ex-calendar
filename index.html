@@ -20,26 +20,28 @@
       <h1> {{mese}} - {{anno}}</h1>
     </script>
     <script id="template-mese" type="text/x-handlebars-template">
-      <li data-id={{data}}>{{giorno}}</li>
+      <div class="quadrato" data-id={{data}}>
+        <span>{{giorno}}</span>
+      </div>
     </script>
     <!-- JavaScript -->
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js-bonus/script-bonus.js"></script>
   </head>
   <body>
 
-      <div class="precedente">
-        <i class="fas fa-angle-left"></i>
-      </div>
-      <div class="contenitore">
-        <div id="titolo">
-        </div>
-
-        <ul id="giorni-mese">
-        </ul>
+    <div class="precedente">
+      <i class="fas fa-angle-left"></i>
     </div>
-      <div class="successivo">
-        <i class="fas fa-angle-right"></i>
+    <div class="contenitore">
+      <div id="titolo"></div>
+
+      <div class="griglia">
+        <div class="riga"></div>
       </div>
+    </div>
+    <div class="successivo">
+      <i class="fas fa-angle-right"></i>
+    </div>
 
     <div class="dati-inesistenti invisibile">
       <h1>DATI NON DISPONIBILI</h1>

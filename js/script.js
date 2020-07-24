@@ -27,16 +27,16 @@ $(document).ready(init);
   function stampaMese(mese) {
     var meseTemplete = $("#template-mese").html();
     var compiled = Handlebars.compile(meseTemplete);
-    var gioniMeseTarget= $("#giorni-mese");
+    var giorniMeseTarget= $(".riga");
     var numGiorniMese = mese.daysInMonth();
-    gioniMeseTarget.html("");
+    giorniMeseTarget.html("");
     for (var i = 1; i <= numGiorniMese; i++) {
       var giornoData = moment({year:mese.year(), month:mese.month(), day:i});
       var meseHtml = compiled({
         "data": giornoData.format("YYYY-MM-DD"),
         "giorno": i
       });
-      gioniMeseTarget.append(meseHtml);
+      giorniMeseTarget.append(meseHtml);
     }
   }
 
@@ -73,9 +73,9 @@ $(document).ready(init);
 
           if (success) {
             for (var i = 0; i < feste.length; i++) {
-              var elemento = $("#giorni-mese li[data-id='"+feste[i]["date"]+"']");
+              var elemento = $(".riga div[data-id='"+feste[i]["date"]+"']");
               elemento.addClass("feste");
-              elemento.append(" - " + feste[i]["name"]);
+              elemento.append(feste[i]["name"]);
             }
           } else {
             allarme.removeClass("invisibile");
