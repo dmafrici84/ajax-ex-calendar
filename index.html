@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Moment -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <!-- Moment in italiano -->
+    <!-- Moment ita -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/locale/it.min.js"></script>
     <!-- Handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
@@ -20,7 +20,7 @@
       <h1> {{mese}} - {{anno}}</h1>
     </script>
     <script id="template-mese" type="text/x-handlebars-template">
-      <li data-id={{data}}>{{value}}</li>
+      <li data-id={{data}}>{{giorno}}</li>
     </script>
     <!-- JavaScript -->
     <script type="text/javascript" src="js/script.js"></script>
@@ -32,19 +32,14 @@
       </div>
       <div class="contenitore">
         <div id="titolo">
-          <h1></h1>
         </div>
 
         <ul id="giorni-mese">
-
         </ul>
     </div>
       <div class="successivo">
         <i class="fas fa-angle-right"></i>
       </div>
-
-
-
 
     <div class="dati-inesistenti invisibile">
       <h1>DATI NON DISPONIBILI</h1>
